@@ -1,6 +1,6 @@
 const list = [4,8,15,16,23,42];
 
-const binarySearch = (list, lookFor) => {
+const search = (list, lookFor) => {
   //define the range
   var min=0, max=list.length;
   var middle;
@@ -8,7 +8,8 @@ const binarySearch = (list, lookFor) => {
   while(min <= max){
     //define the middle of the range
     middle = Math.floor((min + max) / 2);
-    //if we've landed on it...
+         console.log(min, max, middle)
+   //if we've landed on it...
     if(list[middle] === lookFor){
       return middle;
     }else{
@@ -22,4 +23,14 @@ const binarySearch = (list, lookFor) => {
   return -1;
 };
 
-console.log(binarySearch(list,3));
+console.log(search(list,3));
+
+assert.equal(search([0, 1,2,3], 0), 0)
+assert.equal(search([0, 1,2,3], 3), 3)
+
+assert.equal(search([2, 4, 6, 8, 9, 11, 20, 32, 43], 43), 8)
+assert.equal(search([2, 4, 6, 8, 9, 11, 20, 32, 43], 20), 6)
+assert.equal(search([2, 4, 6, 8, 9, 11, 20, 32, 43], 11), 5)
+assert.equal(search([2, 4, 6, 8, 9, 11, 20, 32, 43], 9), 4)
+assert.equal(search([2, 4, 6, 8, 9, 11, 20, 32, 43], 8), 3)
+assert.equal(search([2, 4, 6, 8, 9, 11, 20, 32, 43], 2), 0)
